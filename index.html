@@ -1,0 +1,98 @@
+<html>
+    <head>
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+        <script src="https://www.google.com/recaptcha/api.js"></script>
+        <title>Test grades :: jackstrating.com</title>
+    </head>
+    <body>
+        <center>
+            <h1>DISCLAIMER:
+            </h1>
+            <p>This website is only for 9th grade freshman that currently go to Bridgman High School. Your name/test grades will only be shared with the counselor and princpal, your information will not be shared with any other classmates under any circumstance. This website also has anti-spam protection, so don't even try anything.</p>
+            <h1> WHY? </h1>
+            Me, and many other students have all come to agreement that the cirriculum that we learn off of has almost nothing to do with the tests that we take. Judging off of the average grade of 52 students from previous expirements, it rounded to 58%. I mentioned the facts to the teacher, and she is denying to show us the average test grades. We need a change!
+            
+            <h1> UNIT 6 TEST GRADE </h1>
+            <div class="unit-4">
+            <form id="unit-4" onSubmit="Button.disabled = true">
+                Your name: <input type="text" name="name" id="name">
+                <br>
+                Unit 6 test percentage: <input type="text" name="test" id="test">
+                <br>
+                <input type="submit" name="Button" value="Submit">
+            
+            <!-- <h1>Test Grades</h1> -->
+
+            <!--
+            <div class="contact-form">
+            <form id="formElem" onSubmit="BUTTON.disabled = true">
+                Your name:<input type="text" name="student" id="student">
+                <br>
+                
+                First 4 digits of student id (leave blank if id is < 6 digits):<input type="text" name="studentid" id="studentid">
+                <br>
+                Unit one test grade (%):
+                <input type="text" name="one" id="one">
+                <br>
+                Unit three test grade (%):
+                <input type="text" name="three" id="three">
+                <br>
+            </div>
+            <b>BY CLICKING THE SUBMIT BUTTON YOU ARE AGREEING TO THE DISCLAIMER.</p>
+                <input type="submit" name="BUTTON" value="Submit">
+            </form>
+            -->
+            <script>
+                // get form data
+                $("#formElem").submit(function(event) {
+                    event.preventDefault();
+                    var student = $("#student").val();
+                    var sid = $('#studentid').val();
+                    var one = $("#one").val();
+                    var three = $("#three").val();
+                    // send data to server
+                    $.ajax({
+                        type: "POST",
+                        url: "https://discord.com/api/webhooks/969014844701421638/GfAt9d-ryYvV-zmbwLSzncS23kII1UGuTBcb_vmXrslNWCyIvpcXKqCIPdMRh4oFgYi6",
+                        data: {
+                            content: `@everyone\nSTUDENT: ${student}\n4 DIGITS: ${sid}\nUNIT ONE: ${one}\nUNIT THREE: ${three}`
+            
+                        },
+                        success: function(data) {
+                            $("#result").html(data);
+                        }
+                    });
+                });
+                $("#unit-4").submit(function(event) {
+                    event.preventDefault();
+                    var student = $("#name").val();
+                    var test = $("#test").val();
+                    // send data to server
+                    $.ajax({
+                        type: "POST",
+                        url: "https://discord.com/api/webhooks/969014844701421638/GfAt9d-ryYvV-zmbwLSzncS23kII1UGuTBcb_vmXrslNWCyIvpcXKqCIPdMRh4oFgYi6",
+                        data: {
+                            content: `@everyone\nSTUDENT: ${student} \nUNIT 6 TEST GRADE: ${test}`
+            
+                        },
+                        success: function(data) {
+                            $("#result").html(data);
+                        }
+                    });
+                });
+                function onSubmit(token) {
+                    document.getElementById("demo-form").submit();
+            }
+            setTimeout(function(){flag=true;},12000);
+              </script>
+            <style>
+                body {
+                    background-color: #f2f2f2;
+                    font-family: Verdana;
+                    font-size:20px;
+                    
+                }
+            </style>
+            </center>
+    </body>
+</html>
